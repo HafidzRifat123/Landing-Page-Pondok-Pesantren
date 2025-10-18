@@ -1,0 +1,873 @@
+/* RESET DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GLOBAL STYLE & SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: sans-serif; 
+    line-height: 1.6;
+    background-color: #f4f4f4; 
+}
+
+/* ------------------------------------------- */
+/* 1. HERO SECTION & HEADER (DESKTOP) */
+/* ------------------------------------------- */
+
+.hero-section {
+    /* TEMPAT GAMBAR LATAR BELAKANG */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                url('background-first-page.png') no-repeat center center/cover;
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white; 
+    text-align: center;
+    position: relative;
+    padding-top: 0; 
+}
+
+/* ============================================== */
+/* NAVIGASI BAR (FIXED/MENGAMBANG & SHADOW) */
+/* ============================================== */
+.navbar {
+    /* STICKY STYLE: */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    background-color: #B3CFFF; /* Background Gelap */
+    z-index: 999; 
+    
+    /* SHADOW 1PX DI BAWAH */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); 
+    
+    padding: 10px 0; 
+    transition: background-color 0.3s;
+}
+
+/* WRAPPER KONTEN UNTUK MAX-WIDTH */
+.navbar-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* SPACER: Menggeser konten hero ke bawah (80px logo + 2*10px padding = 100px) */
+.navbar-spacer {
+    height: 100px; 
+    width: 100%;
+}
+
+.logo-container {
+    height: 80px; 
+    width: 80px;
+    overflow: hidden;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* NAV LINKS (DESKTOP) */
+.nav-links {
+    display: flex; 
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #cccccc;
+}
+
+/* HAMBURGER ICON (DESKTOP): HARUS TERSEMBUNYI */
+.hamburger {
+    display: none; 
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* GAYA ICON HAMBURGER */
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: white; 
+}
+
+/* HAMBURGER ANIMATION (X MARK) */
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============================================== */
+/* KONTEN UTAMA HERO */
+/* ============================================== */
+.hero-content {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3rem; 
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* TOMBOL CTA */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.btn-cta {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px; 
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    white-space: nowrap; 
+    font-size: 1rem;
+}
+
+.btn-white-border {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-white-border:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-white-bg {
+    background-color: white;
+    border: 2px solid white;
+    color: #1a1a1a; 
+}
+
+.btn-white-bg:hover {
+    background-color: #e0e0e0;
+}
+
+/* ------------------------------------------- */
+/* RESPONSIVE MOBILE (<= 768px) */
+/* ------------------------------------------- */
+
+@media (max-width: 768px) {
+    
+    .navbar-spacer {
+        height: 90px; /* Sesuaikan sedikit untuk mobile */
+    }
+
+    /* TAMPILKAN ICON HAMBURGER */
+    .hamburger {
+        display: block; 
+        order: 1; 
+        z-index: 1000;
+    }
+
+    /* KONTEN UTAMA HERO */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    /* TOMBOL CTA */
+    .cta-buttons {
+        flex-direction: column; 
+        width: 80%;
+    }
+
+    /* MENU MOBILE (DISSEMBUNYIKAN DI AWAL) */
+    .nav-links {
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        height: 100vh;
+        width: 70%;
+        
+        /* GAYA MENU MOBILE */
+        background-color: rgba(0, 0, 0, 0.95); /* Latar belakang gelap */
+        
+        display: flex; 
+        flex-direction: column; 
+        align-items: flex-start; 
+        justify-content: flex-start;
+        
+        padding-top: 100px;
+        z-index: 50; 
+        
+        /* SEMBUNYIKAN MENU */
+        transform: translateX(-100%); 
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* GAYA LINK di Menu Mobile */
+    .nav-links a {
+        padding: 15px 20px; 
+        width: 100%; /* Agar link mengambil lebar penuh untuk area klik */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* KELAS AKTIF (Saat menu harus ditampilkan) */
+    .nav-links.active {
+        transform: translateX(0); 
+    }
+}
+
+
+/* ------------------------------------------- */
+/* 2. BAGIAN TENTANG PESANTREN (FULL-WIDTH) */
+/* ------------------------------------------- */
+.section-tentang {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #ffffff;
+    margin-top: 0;
+    padding-top: 130px;
+}
+
+.section-tentang h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.tentang-logo-container {
+    margin-bottom: 40px;
+}
+
+.tentang-logo {
+    width: 150px; 
+    height: 150px;
+}
+
+.tentang-deskripsi {
+    max-width: 900px; 
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8; 
+    color: #444444;
+}
+
+/* ... (Gaya Section 3, 4, 5, 6, 7, dan 8 DITERUSKAN SEPERTI KODE ANDA SEBELUMNYA) ... */
+
+/* ------------------------------------------- */
+/* 3. BAGIAN VISI & MISI */
+/* ------------------------------------------- */
+
+.section-visi-misi {
+    padding: 80px 5%;
+    background-color: #B3CFFF; 
+    text-align: center;
+    margin-top: 0;
+    padding-top: 130px;
+}
+
+.section-visi-misi h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.visi-misi-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* GAYA KARTU */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.card-image-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: F9F9F9;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e0f7fa; 
+}
+
+.card-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: left; 
+}
+
+/* RESPONSIVE UNTUK VISI & MISI */
+@media (max-width: 900px) {
+    .visi-misi-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .card {
+        max-width: 600px; 
+    }
+}
+
+/* ------------------------------------------- */
+/* 4. BAGIAN PROGRAM (SD & SMP/SMA) */
+/* ------------------------------------------- */
+
+.section-program {
+    padding: 80px 5%;
+    background-color: #ffffff; 
+    text-align: center;
+    margin-top: 0;
+    padding: 130px;
+}
+
+.section-program h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.program-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* GAYA KARTU PROGRAM */
+.card-program {
+    background-color: #B3CFFF; 
+    border: 5px solid #B3CFFF; 
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); 
+    
+    width: 400px;
+    max-width: 950px; 
+    padding-bottom: 20px; 
+    overflow: hidden; 
+}
+
+/* Container Gambar */
+.card-program .card-image-container {
+    height: 250px; 
+    overflow: hidden;
+    border-radius: 10px 10px 0 0; 
+}
+
+.card-program .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.card-program .card-image:hover {
+    transform: scale(1.05); 
+}
+
+/* Konten Teks di bawah Gambar */
+.card-program .card-content {
+    padding: 20px; 
+    padding-top: 15px;
+    text-align: center; 
+}
+
+/* Judul Program (Madrasah Salafiyyah / Mulazamah) */
+.card-program .card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 5px; 
+    border-bottom: none;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.program-title-small {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Teks Deskripsi (Agama & Umum) */
+.card-program .card-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding-top: 15px;
+}
+
+/* RESPONSIVE UNTUK PROGRAM */
+@media (max-width: 900px) {
+    .program-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .card-program {
+        max-width: 500px;
+    }
+}
+
+/* ------------------------------------------- */
+/* 5. BAGIAN INFORMASI LAINNYA / FASILITAS */
+/* ------------------------------------------- */
+
+.section-lainnya {
+    padding: 80px 5%;
+    background-color: #ffffff; 
+    text-align: center;
+    margin-top: 0;
+    padding-top: 130px;
+}
+
+.section-lainnya h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+/* CONTAINER UTAMA (BINGKAI BIRU MUDA) */
+.info-main-container {
+    background-color: #B3CFFF; 
+    border-radius: 15px; 
+    padding: 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.info-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Container logo di dalam kartu */
+.card-logo-container {
+    text-align: center; 
+    margin-bottom: 10px; 
+}
+
+/* Gambar logo itu sendiri */
+.card-logo {
+    width: 60px; 
+    height: 60px;
+    object-fit: contain;
+}
+
+.info-box h3 {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* RESPONSIVE UNTUK FASILITAS LAINNYA */
+@media (max-width: 992px) { 
+    /* Tablet: 2 kolom */
+    .info-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .info-main-container {
+        padding: 30px;
+    }
+}
+@media (max-width: 600px) { 
+    /* Mobile: 1 kolom */
+    .info-grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .info-main-container {
+        padding: 20px;
+    }
+}
+
+/* ------------------------------------------- */
+/* 6. BAGIAN VIRTUAL TOUR */
+/* ------------------------------------------- */
+
+.section-virtual-tour {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 130px;
+}
+
+.section-virtual-tour h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.tour-media-container {
+    max-width: 1000px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tour-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tour-caption {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.btn-tour-explore {
+    background-color: #1769F7;
+    border: 2px solid #B3CFFF;
+    color: #ffffff;
+}
+
+.btn-tour-explore:hover {
+    background-color: #92b8ff;
+    border-color: #92b8ff;
+}
+
+/* ------------------------------------------- */
+/* 7. BAGIAN FORM PENDAFTARAN */
+/* ------------------------------------------- */
+
+.section-pendaftaran {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.section-pendaftaran h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #B3CFFF;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.pendaftaran-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 10px); /* 2 kolom untuk desktop */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-full {
+    flex: 1 1 100%; /* 1 kolom penuh untuk alamat wali */
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #1769F7; /* Warna biru saat fokus */
+    outline: none;
+}
+
+.form-submit-container {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    background-color: #1769F7; /* Warna biru pekat */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-submit:hover {
+    background-color: #0d47a1;
+}
+
+/* style website pondok.css - Di bawah bagian Pendaftaran (section-pendaftaran) */
+
+/* KODE UNTUK MENGAKTIFKAN KURSOR HANYA PADA INPUT FIELD */
+.form-group input, 
+.form-group textarea,
+/* Targetkan semua elemen input di dalam form pendaftaran */
+#pendaftaran form input[type="text"],
+#pendaftaran form input[type="email"],
+#pendaftaran form textarea {
+    /* Mengembalikan kemampuan memilih teks */
+    user-select: text !important; 
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    
+    /* Mengembalikan kursor I-beam */
+    cursor: text !important;
+    
+    /* (Opsional) Memberikan sedikit outline saat input fokus agar terlihat jelas */
+    /* outline: 1px solid #1769F7; */
+}
+
+/* Pastikan tombol submit tetap menggunakan kursor pointer */
+.form-group button {
+    cursor: pointer !important;
+}
+/* RESPONSIVE UNTUK FORM */
+@media (max-width: 768px) {
+    .form-group {
+        flex: 1 1 100%; /* 1 kolom untuk mobile/tablet */
+    }
+}
+/* ------------------------------------------- */
+/* 8. BAGIAN FOOTER (BARU: Sederhana & Rata Tengah) */
+/* ------------------------------------------- */
+
+footer {
+    background-color: #1769F7; /* Warna biru pekat */
+    color: white;
+    padding: 40px 5%;
+    text-align: center; /* Rata tengah untuk semua teks di footer */
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* GAYA COPYRIGHT */
+.footer-copyright {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 25px; /* Jarak antara teks copyright dan ikon */
+}
+
+/* HILANGKAN/TIDAK DIPERLUKAN LAGI: */
+.footer-contact-grid,
+.footer-column {
+    display: none; /* Menyembunyikan elemen lama yang tidak digunakan di desain baru */
+}
+
+/* Ikon Media Sosial di Footer */
+.footer-social-icons {
+    display: flex;
+    justify-content: center; /* Rata tengah ikon */
+    gap: 30px; 
+    margin-top: 25px; /* Jarak dari teks Copyright */
+    margin-bottom: 10px; /* Jarak dari bawah footer */
+}
+
+.footer-social-icons a {
+    color: white; /* Warna ikon agar terlihat */
+    display: inline-block; /* Memastikan link adalah container fleksibel */
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Sedikit padding agar area klik lebih nyaman */
+    transition: color 0.3s;
+}
+
+.footer-social-icons a:hover {
+    color: #B3CFFF;
+}
+/* GAYA COPYRIGHT */
+.footer-copyright {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 25px; /* Jarak antara teks copyright dan ikon */
+    /* Pastikan Anda HAPUS padding-bottom dan border-bottom yang mungkin menyebabkan masalah */
+    /* padding-bottom: 0; */
+    /* border-bottom: none; */
+}
+/* KUNCI: Sizing untuk SVG */
+.social-icon {
+    /* Ini adalah kode yang menentukan ukuran pasti logo Anda */
+    width: 35px; 
+    height: 35px;
+    /* Pastikan tidak ada properti lain yang mengubah display atau overflow */
+}
+
+/* RESPONSIVE UNTUK FOOTER */
+@media (max-width: 600px) {
+    .footer-contact-grid {
+        flex-direction: column; 
+        text-align: center;
+    }
+    .footer-column {
+        padding: 10px 0;
+    }
+    .footer-column p {
+        text-align: center;
+    }
+}
+
+/* ------------------------------------------- */
+/* Tombol WhatsApp Mengambang (Floating Button) */
+/* ------------------------------------------- */
+.whatsapp-float {
+    /* POSISI MENGAMBANG */
+    position: fixed;
+    bottom: 30px;    
+    right: 30px;     
+    z-index: 9999; 
+    
+    /* UKURAN DAN BENTUK */
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    
+    /* GANTI LOGO */
+    /* ⚠️ GANTI NAMA FILE INI DENGAN NAMA FILE LOGO WA YANG SUDAH ANDA DOWNLOAD */
+    background-image: url('whatsapp.svg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%; 
+    
+    /* ANIMASI */
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05) translateY(-5px); 
+}
+/* RESET TAMBAHAN UNTUK MENGHILANGKAN KURSOR DAN OUTLINE DI SELURUH WEBSITE */
+* {
+    /* Menghilangkan kemampuan memilih teks (mencegah kursor I-beam) */
+    user-select: none;
+    -webkit-user-select: none; /* Untuk browser berbasis Webkit (Chrome, Safari) */
+    -moz-user-select: none;    /* Untuk browser Mozilla Firefox */
+    -ms-user-select: none;     /* Untuk browser Edge/IE */
+    
+    /* Mengganti kursor I-beam menjadi kursor default (panah) */
+    cursor: default;
+}
+
+/* Menghilangkan garis luar/outline pada semua elemen yang bisa difokuskan (link, tombol, dll.) */
+a:focus,
+button:focus,
+img:focus {
+    outline: none !important;
+}
