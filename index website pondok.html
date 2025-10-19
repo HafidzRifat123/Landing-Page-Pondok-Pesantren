@@ -27,6 +27,7 @@
                 <a href="#program">Program</a>
                 <a href="#lainnya">Lainnya</a>
                 <a href="#virtual-tour">Virtual Tour</a>
+                <a href="#pendaftaran">Pendaftaran</a>
             </div>
         </div>
     </nav>
@@ -39,6 +40,7 @@
                 <a href="#virtual-tour" class="btn btn-cta btn-white-border">Jelajahi Virtual Tour</a>
                 <a href="#lainnya" class="btn btn-cta btn-white-bg">Lihat Informasi</a>
                 <a href="#pendaftaran" class="btn btn-cta btn-white-bg">Pendaftaran</a>
+                
             </div>
         </div>
     </header>
@@ -72,7 +74,7 @@
 
             <div class="card">
                 <div class="card-image-container">
-                    <img src="/Baca Al-Qur'an (1) Visi & Misi.png" alt="Misi" class="card-image">
+                    <img src="Baca Al-Qur'an (1) Visi & Misi.png" alt="Misi" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>MISI</h3>
@@ -89,7 +91,7 @@
         <div class="program-container">
             <div class="card card-program">
                 <div class="card-image-container">
-                    <img src="/Baca Al-Qur'an 2 (Program).png" alt="Program Madrasah Salafiyyah" class="card-image">
+                    <img src="Baca Al-Qur'an 2 (Program).png" alt="Program Madrasah Salafiyyah" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>Madrasah Salafiyyah (SD)</h3>
@@ -104,7 +106,7 @@
 
             <div class="card card-program">
                 <div class="card-image-container">
-                    <img src="/Baca Al-Qur'an 3 (Program).png" alt="Program Mulazamah" class="card-image">
+                    <img src="Baca Al-Qur'an 3 (Program).png" alt="Program Mulazamah" class="card-image">
                 </div>
                 <div class="card-content">
                     <h3>Mulazamah (SMP & SMA)</h3>
@@ -171,66 +173,133 @@
         </div>
     </section>
 <section id="virtual-tour" class="section-virtual-tour">
-        <h2>VIRTUAL TOUR</h2>
+    <h2>VIRTUAL TOUR</h2>
+    
+    <div class="virtual-tour-content">
         
-        <div class="virtual-tour-content">
-            <div class="tour-media-container">
-                <img src="Virtual Halaman Pondok.png" alt="Virtual Tour Ma'had" class="tour-image">
-            </div>
-            <p class="tour-caption">
-                Lingkungan Pondok Pesantren
-            </p>
-            <div class="tour-cta">
-                <a href="#" class="btn btn-cta btn-tour-explore">Jelajahi Full Tour</a>
-            </div>
+        <div class="tour-media-container">
+            <iframe 
+                src="http://localhost/Projek Pondok Pesantren/css/" 
+                title="Virtual Tour Ma'had"
+                width="100%" 
+                height="500px" 
+                frameborder="0" 
+                allowfullscreen 
+                scrolling="no"
+                class="tour-image virtual-tour-iframe">
+            </iframe>
         </div>
-    </section>
-
-    <section id="pendaftaran" class="section-pendaftaran">
-        <h2>FORM PENDAFTARAN</h2>
         
-        <div class="form-container">
-            <form action="#" method="POST" class="pendaftaran-form">
-                <div class="form-group">
-                    <label for="nama_santri">Nama Santri</label>
-                    <input type="text" id="nama_santri" name="nama_santri" required>
-                </div>
-                <div class="form-group">
-                    <label for="ttl">Tempat Tanggal Lahir</label>
-                    <input type="text" id="ttl" name="ttl" required>
-                </div>
-                <div class="form-group">
-                    <label for="alamat_santri">Alamat Santri</label>
-                    <input type="text" id="alamat_santri" name="alamat_santri" required>
-                </div>
-                <div class="form-group">
-                    <label for="asal_sekolah">Asal Sekolah</label>
-                    <input type="text" id="asal_sekolah" name="asal_sekolah">
-                </div>
-                <div class="form-group">
-                    <label for="nama_wali">Nama Lengkap Wali</label>
-                    <input type="text" id="nama_wali" name="nama_wali" required>
-                </div>
-                <div class="form-group">
-                    <label for="telepon">Nomor Telepon / WA</label>
-                    <input type="tel" id="telepon" name="telepon" required>
-                </div>
-                <div class="form-group">
-                    <label for="email_wali">Alamat Gmail Wali</label>
-                    <input type="email" id="email_wali" name="email_wali" required>
-                </div>
-                <div class="form-group form-group-full">
-                    <label for="alamat_wali">Alamat Wali</label>
-                    <input type="text" id="alamat_wali" name="alamat_wali" required>
-                </div>
-
-                <div class="form-submit-container">
-                    <button type="submit" class="btn btn-submit">Kirim Data</button>
-                </div>
-
-            </form>
+        <p class="tour-caption">
+            Lingkungan Pondok Pesantren
+        </p>
+        <div class="tour-cta">
+            <a href="http://localhost/Projek Pondok Pesantren/css/" target="_blank" class="btn btn-cta btn-tour-explore">Jelajahi Full Tour</a>
         </div>
-    </section>
+    </div>
+</section>
+
+   <section id="pendaftaran" class="section-pendaftaran">
+    <h2>FORM PENDAFTARAN</h2>
+    <div class="form-content">
+        <form action="submit_form.php" method="POST" class="pendaftaran-form">
+            
+            <!-- BARIS 1: NAMA SANTRI & NAMA WALI (2 KOLOM) -->
+            <div class="form-group">
+                <label for="nama_santri">Nama Santri:</label>
+                <input type="text" id="nama_santri" name="nama_santri" placeholder="Masukkan nama lengkap santri" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nama_wali">Nama Lengkap Wali:</label>
+                <input type="text" id="nama_wali" name="nama_wali" placeholder="Masukkan nama lengkap wali" required class="form-control">
+            </div>
+
+            <!-- BARIS 2: TEMPAT LAHIR & TANGGAL LAHIR (2 KOLOM) -->
+            <div class="form-group">
+                <label for="tempat_lahir">Tempat Lahir:</label>
+                <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Contoh: Bandar Lampung" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir:</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" required class="form-control">
+            </div>
+            
+            <!-- BARIS 3: ASAL SEKOLAH & NO. TELEPON/WA WALI (2 KOLOM) -->
+            <div class="form-group">
+                <label for="asal_sekolah">Asal Sekolah:</label>
+                <input type="text" id="asal_sekolah" name="asal_sekolah" placeholder="Asal sekolah/instansi terakhir" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="telepon_wali">Nomor Telepon/WA Wali:</label>
+                <input type="tel" id="telepon_wali" name="telepon_wali" placeholder="Contoh: 0812xxxxxxx" required class="form-control">
+            </div>
+
+            <!-- BARIS 4: JENIS KELAMIN & PROGRAM DIMINATI (2 KOLOM - Radio Group) -->
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <div class="radio-group-horizontal">
+                    <input type="radio" id="laki" name="jenis_kelamin" value="Laki-laki" required>
+                    <label for="laki">Laki-laki</label>
+                    
+                    <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan">
+                    <label for="perempuan">Perempuan</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Program Diminati:</label>
+                <div class="radio-group-horizontal">
+                    <input type="radio" id="program_sd" name="program_diminati" value="SD" required>
+                    <label for="program_sd">SD</label>
+                    
+                    <input type="radio" id="program_mulazamah" name="program_diminati" value="Mulazamah (SMP/SMA)">
+                    <label for="program_mulazamah">Mulazamah (SMP/SMA)</label>
+                </div>
+            </div>
+
+            <!-- BARIS 5: ALAMAT SANTRI (1 KOLOM PENUH) -->
+            <div class="form-group-full">
+                <label for="alamat_santri">Alamat Santri:</label>
+                <textarea 
+                    id="alamat_santri" 
+                    name="alamat_santri" 
+                    rows="3" 
+                    placeholder="Masukkan alamat lengkap santri saat ini"
+                    required 
+                    class="form-control"></textarea>
+            </div>
+
+            <!-- BARIS 6: ALAMAT WALI (1 KOLOM PENUH) -->
+            <div class="form-group-full">
+                <label for="alamat_wali">Alamat Wali:</label>
+                <textarea 
+                    id="alamat_wali" 
+                    name="alamat_wali" 
+                    rows="3" 
+                    placeholder="Masukkan alamat lengkap wali/orang tua"
+                    required 
+                    class="form-control"></textarea>
+            </div>
+
+            <!-- BARIS 7: PESAN KHUSUS (1 KOLOM PENUH) -->
+            <div class="form-group-full">
+                <label for="pesan">Pesan Khusus (Opsional):</label>
+                <textarea 
+                    id="pesan" 
+                    name="pesan_khusus" 
+                    rows="4" 
+                    placeholder="Tuliskan pesan, pertanyaan, atau catatan khusus Anda di sini..."
+                    class="form-control"></textarea>
+            </div>
+            
+            <!-- TOMBOL SUBMIT (TENGAH) -->
+            <div class="form-submit-container">
+                <button type="submit" class="btn-submit">Kirim Data</button>
+            </div>
+
+        </form>
+    </div>
+</section>
+
     
   <footer>
        <div class="footer-social-icons">
